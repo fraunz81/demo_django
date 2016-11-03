@@ -1,0 +1,50 @@
+Anhand des Beispiels aus ct 3/2015 Seite 156 Jazz fürs Web
+
+
+pip install virtualenv installiert das benötigte virtualenv
+
+im Projektordner dann folgendes ausführen
+virtualenv venv	dieser Befehl installiert die Pythonumgebung im Projektordner
+source venv/bin/activate	dieser Befehl aktiviert in der Console dann diese Umgebung
+
+mit pip install django	wird die aktuelle Version von Django dann installiert.
+
+Mit django-admin.py startproject dudel	kann dann das Projekt (in diesem Fall "dudel") erstellt werden.
+
+Für Deutsch muss in der Datei "dudel/settings.py" die Variable "LANGUAGE_CODE" auf "de-at" gestellt werden
+Die Zeitzone "TIME_ZONE" kann dann auch noch auf "Europe/Vienna" gestellt werden.
+
+Mit python manage.py migrate	wird die Datenbank initialisiert.
+
+Der Developmentserver wird mit python manage.py runserver gestartet
+Standardmäßig ist dieser dann über http://127.0.0.1:8000/ erreichbar.
+
+Mit App wird hier Modul gemeint.
+Mit python manage.py startapp datefinder wird ein Modul datefinder angelegt.
+
+Das neue Modul wird in der dudel/settings.py bei der Liste INSTALLED_APPS registriert (hinzugefügt).
+
+
+Eine Migration passt nun die Datenbankstruktur an das neue Datenmodell an:
+python manage.py makemigrations datefinder
+
+Alle ausstehenden Migrationen werden mit python manage.py migrate angewendet
+
+Ein Admin kann wie folgt angelegt werden:
+python manage.py createsuperuser
+
+
+
+unter http://127.0.0.1:8000/admin/ müssen Umfragen angelegt werden.
+Diese sind dann unter http://127.0.0.1:8000/dudel/Umfragename verfügbar.
+
+
+
+
+
+
+
+
+
+
+
